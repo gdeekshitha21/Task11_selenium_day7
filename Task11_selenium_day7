@@ -1,0 +1,20 @@
+from selenium import webdriver
+from selenium.webdriver.common.action_chains import ActionChains
+import time
+
+# Initialize Chrome WebDriver
+driver = webdriver.Chrome()
+
+# Open the URL
+driver.get("https://jqueryui.com/droppable/")
+
+# Switch to the iframe containing the draggable elements
+iframe = driver.find_element_by_css_selector(".demo-frame")
+driver.switch_to.frame(iframe)
+
+# Find the draggable and droppable elements
+draggable = driver.find_element_by_id("draggable")
+droppable = driver.find_element_by_id("droppable")
+
+# Perform the drag and drop operation
+actions = ActionChains(driver)
